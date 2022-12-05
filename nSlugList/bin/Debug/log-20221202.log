@@ -1,0 +1,53 @@
+11:19:37 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:19:47 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:20:11 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:20:36 [INFOR] 執行nSlugList Application
+11:21:07 [INFOR] 執行nSlugList Application
+11:21:41 [INFOR] 執行nSlugList Application
+11:23:34 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:24:32 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:25:54 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+11:27:07 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+13:55:55 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+13:56:30 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+13:56:45 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+13:58:03 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:03:28 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:03:33 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:05:25 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:05:44 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:05:50 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:06:02 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:06:09 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:34:02 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:34:46 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:35:40 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:36:30 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:37:08 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:37:57 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
+14:38:08 [ERROR] 例外狀況:System.IndexOutOfRangeException: 索引在陣列的界限之外。
+   於 nSlugList.Program.Main(String[] args) 於 D:\Project\Gateway\nSlugList\Program.cs: 行 43
