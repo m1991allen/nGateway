@@ -134,7 +134,6 @@ namespace nBasysNews
                 Log.CloseAndFlush();
             }
             Environment.Exit(1);
-            // 測試測試測試測試測試測試
         }
     }
 }
