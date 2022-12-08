@@ -76,7 +76,6 @@ namespace nBasysNews
                         // eg.全文共10則，輸入6，後面只有8-11共4則，列出範圍為1 2 3 4 5 "6" 7 8 9 10(列出10則)
                         else if ((indexLeng - index) < indexRange)
                         {
-                            //Console.WriteLine(content[index - indexRange].billItemIndex);
                             for (int i = (index - indexRange) - 1; i < indexLeng; i++)
                             {
                                 string targetDir = Path.Combine(destDir, ((i + 1) + ".txt"));

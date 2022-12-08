@@ -58,5 +58,29 @@ namespace Gateway.Properties {
                 this["log"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList")]
+        public string postQueue {
+            get {
+                return ((string)(this["postQueue"]));
+            }
+            set {
+                this["postQueue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList")]
+        public string postNews {
+            get {
+                return ((string)(this["postNews"]));
+            }
+            set {
+                this["postNews"] = value;
+            }
+        }
     }
 }

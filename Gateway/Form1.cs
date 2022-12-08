@@ -164,7 +164,7 @@ namespace Gateway
         // Post Rundown API
         void PostQueue()
         {
-            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList");
+            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postQueue);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
 
@@ -206,7 +206,7 @@ namespace Gateway
         // Post News API
         void PostNews()
         {
-            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList");
+            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postNews);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
             try
