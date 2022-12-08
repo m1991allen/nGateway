@@ -25,7 +25,7 @@ namespace Gateway.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SUB1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SUBC1")]
         public string deviceName {
             get {
                 return ((string)(this["deviceName"]));

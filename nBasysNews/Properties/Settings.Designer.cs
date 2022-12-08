@@ -26,24 +26,36 @@ namespace nBasysNews.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir\\output.txt")]
-        public string targetFileDir {
+        public string targetFile {
             get {
-                return ((string)(this["targetFileDir"]));
+                return ((string)(this["targetFile"]));
             }
             set {
-                this["targetFileDir"] = value;
+                this["targetFile"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir")]
-        public string destinationDir {
+        public string destDir {
             get {
-                return ((string)(this["destinationDir"]));
+                return ((string)(this["destDir"]));
             }
             set {
-                this["destinationDir"] = value;
+                this["destDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir\\tempBasys")]
+        public string tempDir {
+            get {
+                return ((string)(this["tempDir"]));
+            }
+            set {
+                this["tempDir"] = value;
             }
         }
         

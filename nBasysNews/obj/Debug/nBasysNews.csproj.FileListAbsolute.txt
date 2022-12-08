@@ -17,7 +17,6 @@ D:\Project\Gateway\nBasysNews\bin\Debug\Newtonsoft.Json.dll
 D:\Project\Gateway\nBasysNews\bin\Debug\Newtonsoft.Json.xml
 D:\Project\Gateway\nBasysNews\bin\Debug\Newtonsoft.Json.Bson.pdb
 D:\Project\Gateway\nBasysNews\bin\Debug\Newtonsoft.Json.Bson.xml
-D:\Project\Gateway\nBasysNews\obj\Debug\nBasysNews.csprojAssemblyReference.cache
 D:\Project\nGateway\nBasysNews\bin\Debug\nBasysNews.exe.config
 D:\Project\nGateway\nBasysNews\bin\Debug\nBasysNews.exe
 D:\Project\nGateway\nBasysNews\bin\Debug\nBasysNews.pdb

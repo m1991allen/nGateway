@@ -38,22 +38,32 @@ namespace nSlugList
                 ) // 輸出到檔案 如:log-20221130.log
                 .CreateLogger();
 
+            // app.config
+            string destDir = Properties.Settings.Default.destDir; // Gateway產出的output.txt的父層路徑
+            string tempDir = Properties.Settings.Default.tempDir; // output.txt的複製暫存路徑
+            string targetFile = Properties.Settings.Default.targetFile; // output.txt的位置
+
             try
             {
                 if (args[1] == "1") // 登入密碼 Properties.Settings.Default.password.ToString()
                 {
-                    string destDir = Properties.Settings.Default.destinationDir; // Gateway產出的output.txt的父層位置
-                    string targetFileDir = Properties.Settings.Default.targetFileDir; // output.txt的位置
-
+                    // 建立
                     string fileName = Path.GetFileName("nSlug");
-                    string targetDir = Path.Combine(destDir, (fileName + ".txt")); // 在路徑底下為產生檔案 nSlug.txt
+                    string targetDirFile = Path.Combine(destDir, (fileName + ".txt")); // 在路徑底下產生 nSlug.txt
 
-                    // 寫入
-                    var json = File.ReadAllText(targetFileDir);
+                    // 複製output再寫入 
+                    string targetTempFile = Path.Combine(tempDir, ("tSOutput.txt")); // 在路徑底下產生 tempOutput.txt
+                    Directory.CreateDirectory(tempDir);
+                    Log.Information("建立tempFolder");
+
+                    //Console.ReadLine(); //中斷點1 建立
+
+                    File.Copy(targetFile, targetTempFile, true);
+
+                    var json = File.ReadAllText(targetTempFile); // 讀取複製出來的tempOutput.txt
                     var content = JsonConvert.DeserializeObject<dynamic>(json);
-                    var news = new News();
 
-                    using (StreamWriter writer = new StreamWriter(targetDir)) // 寫進create的 nSlug.txt
+                    using (StreamWriter writer = new StreamWriter(targetDirFile)) // 寫進新建的nSlug.txt中
                     {
                         foreach (var ctd in content)
                         {
@@ -61,13 +71,22 @@ namespace nSlugList
                             writer.WriteLine(ctd.billItemTitle);
                         }
                     }
-                    Log.Information("執行nSlugList Application");
+                    Log.Information("寫入nSlug.txt");
+
+                    //Console.ReadLine(); //中斷點2 寫入
+
                 }
                 else
                 {
                     Console.WriteLine("密碼錯誤!");
                     Log.Information("密碼錯誤!");
                 }
+                Directory.Delete(tempDir, true);
+
+                //Console.ReadLine(); //中斷點3 刪除
+
+                Log.Information("刪除tempFolder");
+                Log.Information("完成執行nSlugList.exe");
             }
             catch (Exception ex)
             {
@@ -78,7 +97,7 @@ namespace nSlugList
             {
                 // 將最後剩餘的 Log 寫入到 Sinks 去！
                 Log.CloseAndFlush();
-                Environment.Exit(1);
+                Environment.Exit(0);
             }
         }
 

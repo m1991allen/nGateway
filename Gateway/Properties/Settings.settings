@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="deviceName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SUB1</Value>
+      <Value Profile="(Default)">SUBC1</Value>
     </Setting>
     <Setting Name="destinationDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0Selfsys\dir</Value>

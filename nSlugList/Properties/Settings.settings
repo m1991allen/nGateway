@@ -2,11 +2,14 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="nSlugList.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="targetFileDir" Type="System.String" Scope="User">
+    <Setting Name="targetFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0Selfsys\dir\output.txt</Value>
     </Setting>
-    <Setting Name="destinationDir" Type="System.String" Scope="User">
+    <Setting Name="destDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0Selfsys\dir</Value>
+    </Setting>
+    <Setting Name="tempDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\0Selfsys\dir\tempSlug</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
       <Value Profile="(Default)">56178</Value>
