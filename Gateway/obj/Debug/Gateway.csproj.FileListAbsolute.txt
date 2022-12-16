@@ -20,7 +20,6 @@ D:\Project\Gateway\Gateway\obj\Debug\Gateway.csproj.CoreCompileInputs.cache
 D:\Project\Gateway\Gateway\obj\Debug\Gateway.csproj.CopyComplete
 D:\Project\Gateway\Gateway\obj\Debug\Gateway.exe
 D:\Project\Gateway\Gateway\obj\Debug\Gateway.pdb
-D:\Project\Gateway\Gateway\obj\Debug\Gateway.csprojAssemblyReference.cache
 D:\Project\nGateway\Gateway\bin\Debug\Gateway.exe.config
 D:\Project\nGateway\Gateway\bin\Debug\Gateway.exe
 D:\Project\nGateway\Gateway\bin\Debug\Gateway.pdb

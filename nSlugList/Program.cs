@@ -45,11 +45,22 @@ namespace nSlugList
 
             try
             {
-                if (args[1] == "1") // 登入密碼 Properties.Settings.Default.password.ToString()
+                if (args[1] == Properties.Settings.Default.password.ToString()) // 登入密碼 Properties.Settings.Default.password.ToString()
                 {
                     // 建立
                     string fileName = Path.GetFileName("nSlug");
                     string targetDirFile = Path.Combine(destDir, (fileName + ".txt")); // 在路徑底下產生 nSlug.txt
+                    
+                    //先建立目標資料夾dir
+                    string targetDir = Properties.Settings.Default.destDir; 
+                    if (Directory.Exists(targetDir))
+                    {
+                        Log.Information("資料夾已存在");
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(targetDir);
+                    }
 
                     // 複製output再寫入 
                     string targetTempFile = Path.Combine(tempDir, ("tSOutput.txt")); // 在路徑底下產生 tempOutput.txt

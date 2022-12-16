@@ -49,18 +49,6 @@ namespace Gateway.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir\\LOG")]
-        public string log {
-            get {
-                return ((string)(this["log"]));
-            }
-            set {
-                this["log"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList")]
         public string postQueue {
             get {

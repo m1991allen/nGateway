@@ -1,3 +1,0 @@
-10:07:28 [ERROR] 例外狀況:System.Net.WebException: 遠端伺服器傳回一個錯誤: (404) 找不到。
-   於 System.Net.HttpWebRequest.GetResponse()
-   於 Gateway.Form1.PostQueue() 於 D:\Project\Gateway\Gateway\Form1.cs: 行 183

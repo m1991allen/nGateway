@@ -37,3 +37,5 @@ D:\Project\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.CoreCompileInputs.cac
 D:\Project\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.CopyComplete
 D:\Project\nGateway\nBasysNews\obj\Debug\nBasysNews.exe
 D:\Project\nGateway\nBasysNews\obj\Debug\nBasysNews.pdb
+D:\Project\Gateway\nBasysNews\obj\Debug\nBasysNews.Properties.Resources.resources
+D:\Project\Gateway\nBasysNews\obj\Debug\nBasysNews.csproj.GenerateResource.cache

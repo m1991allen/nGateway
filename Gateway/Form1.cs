@@ -170,6 +170,16 @@ namespace Gateway
 
             try
             {
+                string targetDir = Properties.Settings.Default.destinationDir; //先建立目標資料夾dir
+                if (Directory.Exists(targetDir))
+                {
+                    Log.Information("資料夾已存在");
+                }
+                else
+                {
+                    Directory.CreateDirectory(targetDir);
+                }
+
                 RunDownArgs rd = new RunDownArgs();
                 rd.columnDate = dateTimePicker.Value.ToString("yyyy-MM-dd"); //yyyy - MM - dd
                 rd.deviceName = deviceName;

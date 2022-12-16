@@ -45,8 +45,19 @@ namespace nBasysNews
 
             try
             {
-                if (args[2] == "1") // 登入密碼 Properties.Settings.Default.password.ToString()
+                if (args[2] == Properties.Settings.Default.password.ToString()) // 登入密碼 Properties.Settings.Default.password.ToString()
                 {
+                    //先建立目標資料夾dir
+                    string targetDir = Properties.Settings.Default.destDir;
+                    if (Directory.Exists(targetDir))
+                    {
+                        Log.Information("資料夾已存在");
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(targetDir);
+                    }
+
                     string targetTempFile = Path.Combine(tempDir, ("tBOutput.txt")); // 在路徑底下產生 tempOutput.txt
                     Directory.CreateDirectory(tempDir);
 
@@ -65,7 +76,7 @@ namespace nBasysNews
                     int indexLeng = content.Count; // 該節次最大則數
                     int indexRange = 5; // 輸入的則數前後5則
 
-                    Console.ReadLine(); //中斷點2 寫入 
+                    //Console.ReadLine(); //中斷點2 寫入 
 
                     if (index > 0 && index <= indexLeng) // 輸入的值為1~indexLeng
                     {
