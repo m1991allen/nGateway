@@ -106,7 +106,7 @@ namespace nSlugList
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
                 Environment.Exit(0);
             }

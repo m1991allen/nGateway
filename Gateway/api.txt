@@ -1,0 +1,6 @@
+http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList
+http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList
+
+http://172.25.53.67:8080/DYNewsService/hulian/getBillList
+http://172.25.53.67:8080//DYNewsService/hulian/getBillitemList
+

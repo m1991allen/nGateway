@@ -38,6 +38,7 @@ namespace Gateway
         {
             try
             {
+                this._api.Text = "";
                 if (dataGridView.Rows.Count == 0)// 先判斷dataGridView是否有資料
                 {
                     MessageBox.Show("請先取Queue");
@@ -81,12 +82,12 @@ namespace Gateway
             catch (Exception ex)
             {
                 // 紀錄未被捕捉的例外 (Unhandled Exception)
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("當日或當節無資料！");
                 Log.Error("操作錯誤:{exception}", ex);
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // `將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
 
@@ -111,12 +112,12 @@ namespace Gateway
             catch (Exception ex)
             {
                 // 紀錄未被捕捉的例外 (Unhandled Exception)
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("當日或當節無資料！");
                 Log.Error("操作錯誤:{exception}", ex);
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
 
@@ -124,7 +125,9 @@ namespace Gateway
         // 倒數計時
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            int c = int.Parse(_countdownSec.Text);
+            int c = 0;
+            c = int.Parse(_countdownSec.Text);
+
             if (c > 0)
             {
                 c--;
@@ -161,10 +164,10 @@ namespace Gateway
             PostQueue();
         }
 
-        // Post Rundown API
+        // Post Rundown API　(getBillList)
         void PostQueue()
         {
-            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postQueue);
+            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postBillList);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
 
@@ -181,11 +184,16 @@ namespace Gateway
                 }
 
                 RunDownArgs rd = new RunDownArgs();
-                rd.columnDate = dateTimePicker.Value.ToString("yyyy-MM-dd"); //yyyy - MM - dd
+                rd.columnDate = dateTimePicker.Value.ToString("yyyy-MM-dd");
+                //MessageBox.Show(rd.columnDate);
                 rd.deviceName = deviceName;
+                //MessageBox.Show(rd.deviceName);
+
                 using (StreamWriter writer = new StreamWriter(httpwebReguest.GetRequestStream()))
                 {
                     string json = new JavaScriptSerializer().Serialize(rd);
+                    //MessageBox.Show(json);
+
                     writer.Write(json);
                     writer.Flush();
                 }
@@ -193,10 +201,11 @@ namespace Gateway
                 using (StreamReader result = new StreamReader(httpwebReguest.GetResponse().GetResponseStream()))
                 {
                     var data = JsonConvert.DeserializeObject<dynamic>(result.ReadToEnd());
-                    //MessageBox.Show(data.ToString());
+                    //MessageBox.Show(data.data.ToString());
 
                     this.dataGridView.AutoGenerateColumns = false;
-                    this.dataGridView.DataSource = data;
+                    this.dataGridView.DataSource = data.data;
+
                 }
                 Log.Information("Post Rundown API");
             }
@@ -204,19 +213,19 @@ namespace Gateway
             catch (Exception ex)
             {
                 // 紀錄未被捕捉的例外 (Unhandled Exception)
-                MessageBox.Show(ex.Message);
-                Log.Error("例外狀況:{exception}", ex);
+                MessageBox.Show("當日或當節無資料！");
+                Log.Error("例外狀況:{exception}", ex);   
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // 將最後剩餘的 Log 寫入到 Sinks 去
                 Log.CloseAndFlush();
             }
         }
-        // Post News API
+        // Post News API　(getBillitemList)
         void PostNews()
         {
-            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postNews);
+            HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postBillitemList);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
             try
@@ -233,7 +242,6 @@ namespace Gateway
                         // MessageBox.Show(selectedRowCount.ToString());
                         news.billGuid = dataGridView.SelectedRows[i].Cells[2].Value.ToString();
                     }
-
                 }
 
                 // 序列化
@@ -250,19 +258,22 @@ namespace Gateway
                     var data = JsonConvert.DeserializeObject<dynamic>(result.ReadToEnd());
                     string fileName = Path.GetFileName("output"); // 以GUID命名txt檔
                     string targetDir = Path.Combine(destinationDir, (fileName + ".txt"));
-                    File.WriteAllText(targetDir, data.ToString());
+                    File.WriteAllText(targetDir, data.data.ToString());
                 }
+                this._api.Text = "已連線";
+                this._api.ForeColor = SystemColors.Highlight;
                 Log.Information("Post News API");
             }
             catch (Exception ex)
             {
                 // 紀錄未被捕捉的例外 (Unhandled Exception)
-                MessageBox.Show(ex.Message);
+                this._api.Text = "連線失敗！";
+                this._api.ForeColor = Color.Red;
                 Log.Error("例外狀況:{exception}", ex);
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
         }

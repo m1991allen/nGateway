@@ -8,10 +8,10 @@
     <Setting Name="destinationDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0Selfsys\dir</Value>
     </Setting>
-    <Setting Name="postQueue" Type="System.String" Scope="User">
+    <Setting Name="postBillList" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList</Value>
     </Setting>
-    <Setting Name="postNews" Type="System.String" Scope="User">
+    <Setting Name="postBillitemList" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList</Value>
     </Setting>
   </Settings>

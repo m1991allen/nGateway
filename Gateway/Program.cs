@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Serilog;
+using System.Threading;
 
 namespace Gateway
 {
@@ -16,7 +17,20 @@ namespace Gateway
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
 
+            // 防止程式多開
+            bool isAppRunning = false;
+            Mutex mutex = new Mutex(true, System.Diagnostics.Process.GetCurrentProcess().ProcessName, out isAppRunning);
+            if (!isAppRunning)
+            {
+                MessageBox.Show("程式已開啟! 請勿再次啟動");
+                Environment.Exit(1);
+            }
+
+            // LOG 程式執行狀況
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
                 .WriteTo.Console() // 輸出至指令視窗
@@ -25,11 +39,9 @@ namespace Gateway
                     outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
                 ) // 輸出到檔案 如:log-20221130.log
                 .CreateLogger();
+
             try
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
                 Log.Information("程式執行正常");
             }
             catch (Exception ex)
@@ -40,7 +52,7 @@ namespace Gateway
             }
             finally
             {
-                // 將最後剩餘的 Log 寫入到 Sinks 去！
+                // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
         }

@@ -50,24 +50,24 @@ namespace Gateway.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getRundownList")]
-        public string postQueue {
+        public string postBillList {
             get {
-                return ((string)(this["postQueue"]));
+                return ((string)(this["postBillList"]));
             }
             set {
-                this["postQueue"] = value;
+                this["postBillList"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList")]
-        public string postNews {
+        public string postBillitemList {
             get {
-                return ((string)(this["postNews"]));
+                return ((string)(this["postBillitemList"]));
             }
             set {
-                this["postNews"] = value;
+                this["postBillitemList"] = value;
             }
         }
     }

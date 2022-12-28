@@ -36,9 +36,8 @@ namespace Gateway
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.postQueue_btn = new System.Windows.Forms.Button();
@@ -59,6 +58,8 @@ namespace Gateway
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.deviceName_lab = new System.Windows.Forms.Label();
             this._deviceName = new System.Windows.Forms.Label();
+            this.api_status = new System.Windows.Forms.Label();
+            this._api = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -218,19 +219,19 @@ namespace Gateway
             this.Column_Date,
             this.Column_QueueName,
             this.GUID});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Location = new System.Drawing.Point(12, 74);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(446, 351);
@@ -241,8 +242,6 @@ namespace Gateway
             // 
             this.Column_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Column_Date.DataPropertyName = "columnDate";
-            dataGridViewCellStyle2.NullValue = "123";
-            this.Column_Date.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column_Date.HeaderText = "日期";
             this.Column_Date.MinimumWidth = 20;
             this.Column_Date.Name = "Column_Date";
@@ -295,11 +294,32 @@ namespace Gateway
             this._deviceName.TabIndex = 17;
             this._deviceName.Text = "SUB2";
             // 
+            // api_status
+            // 
+            this.api_status.AutoSize = true;
+            this.api_status.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.api_status.Location = new System.Drawing.Point(12, 430);
+            this.api_status.Name = "api_status";
+            this.api_status.Size = new System.Drawing.Size(89, 20);
+            this.api_status.TabIndex = 18;
+            this.api_status.Text = "資料狀態：";
+            // 
+            // _api
+            // 
+            this._api.AutoSize = true;
+            this._api.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._api.Location = new System.Drawing.Point(100, 430);
+            this._api.Name = "_api";
+            this._api.Size = new System.Drawing.Size(0, 21);
+            this._api.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(797, 458);
+            this.Controls.Add(this._api);
+            this.Controls.Add(this.api_status);
             this.Controls.Add(this._deviceName);
             this.Controls.Add(this.deviceName_lab);
             this.Controls.Add(this.dataGridView);
@@ -346,6 +366,8 @@ namespace Gateway
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_QueueName;
         private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
+        private System.Windows.Forms.Label api_status;
+        private System.Windows.Forms.Label _api;
     }
 }
 

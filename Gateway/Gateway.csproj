@@ -109,6 +109,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Return.cs" />
     <Compile Include="Models\Rundown.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
