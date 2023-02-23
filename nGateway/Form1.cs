@@ -14,16 +14,18 @@ using System.Net;
 using System.Web;
 using System.Configuration;
 
-using Gateway.Models;
+using nGateway.Models;
 using Newtonsoft.Json;
 using Serilog;
 
-namespace Gateway
+namespace nGateway
 {
     public partial class Form1 : Form
     {
         string destinationDir = Properties.Settings.Default.destinationDir;
         string deviceName = Properties.Settings.Default.deviceName;
+        string targetDir = Properties.Settings.Default.destinationDir;
+
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace Gateway
             _destinationDir.Text = destinationDir;
             _deviceName.Text = deviceName;
             _countdownSec.Text = _count.Text;
+            Directory.CreateDirectory(targetDir); // 建立目標資料夾APR
         }
 
         // 控制 啟動/關閉 倒數
@@ -45,6 +48,7 @@ namespace Gateway
                 }
                 else
                 {
+                    PostNews();
                     _countdownSec.Text = _count.Text;
                     if (_status.Text == "讀秒 ▶")
                     {
@@ -101,13 +105,15 @@ namespace Gateway
                 {
                     start_btn.PerformClick(); // 生成System.Windows.Forms.Control.Click事件
                     e.Handled = true; // 獲取或設置一個值，該值指示是否處理過此事件
+                    Log.Information("快捷鍵S");
+
                 }
                 if (e.KeyCode == Keys.G)
                 {
                     postQueue_btn.PerformClick(); // 生成System.Windows.Forms.Control.Click事件
                     e.Handled = true; // 獲取或設置一個值，該值指示是否處理過此事件
+                    Log.Information("快捷鍵G");
                 }
-                Log.Information("快捷鍵S/G");
             }
             catch (Exception ex)
             {
@@ -138,7 +144,7 @@ namespace Gateway
             }
             else
             {
-                //讀完秒後產生txt檔
+                //讀完秒後重複產生txt檔
                 c = int.Parse(_count.Text);
                 _countdownSec.ForeColor = SystemColors.Highlight;
                 PostNews();
@@ -162,18 +168,31 @@ namespace Gateway
         private void PostQueue_btn_click(object sender, EventArgs e)
         {
             PostQueue();
+
         }
 
-        // Post Rundown API　(getBillList)
-        void PostQueue()
+        private void Form1_KeyDown(object sender, KeyEventArgs i)
+        {
+            if (i.Control && i.KeyCode == Keys.Q)
+            {
+                string data = PostQueue();
+                MessageBox.Show(data);
+            }
+        }
+
+        // Post Rundown API (getBillList)
+        string PostQueue()
         {
             HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postBillList);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
 
+            // 測試用 ctrl+Q
+            string testData_set = "";
+            string testData_get = "";
+
             try
             {
-                string targetDir = Properties.Settings.Default.destinationDir; //先建立目標資料夾dir
                 if (Directory.Exists(targetDir))
                 {
                     Log.Information("資料夾已存在");
@@ -196,6 +215,7 @@ namespace Gateway
 
                     writer.Write(json);
                     writer.Flush();
+                    testData_set = json;
                 }
 
                 using (StreamReader result = new StreamReader(httpwebReguest.GetResponse().GetResponseStream()))
@@ -205,22 +225,25 @@ namespace Gateway
 
                     this.dataGridView.AutoGenerateColumns = false;
                     this.dataGridView.DataSource = data.data;
-
+                    testData_get = data.data.ToString();
                 }
                 Log.Information("Post Rundown API");
+
             }
 
             catch (Exception ex)
             {
                 // 紀錄未被捕捉的例外 (Unhandled Exception)
                 MessageBox.Show("當日或當節無資料！");
-                Log.Error("例外狀況:{exception}", ex);   
+                Log.Error("例外狀況:{exception}", ex);
             }
             finally
             {
                 // 將最後剩餘的 Log 寫入到 Sinks 去
                 Log.CloseAndFlush();
             }
+
+            return ("傳入:\n" + testData_set + "\n\n\n\n傳出:\n" + testData_get);
         }
         // Post News API　(getBillitemList)
         void PostNews()

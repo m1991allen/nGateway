@@ -39,7 +39,7 @@ namespace nBasysNews
                 .CreateLogger();
 
             // app.config
-            string destDir = Properties.Settings.Default.destDir; // Gateway產出的output.txt的父層位置
+            string destDir = Properties.Settings.Default.destDir; // nGateway產出的output.txt的父層位置
             string tempDir = Properties.Settings.Default.tempDir; // output.txt的複製暫存路徑
             string targetFile = Properties.Settings.Default.targetFile; // output.txt的位置
 
@@ -47,7 +47,7 @@ namespace nBasysNews
             {
                 if (args[2] == Properties.Settings.Default.password.ToString()) // 登入密碼 Properties.Settings.Default.password.ToString()
                 {
-                    //先建立目標資料夾dir
+                    //先建立目標資料夾APR
                     string targetDir = Properties.Settings.Default.destDir;
                     if (Directory.Exists(targetDir))
                     {
@@ -62,14 +62,16 @@ namespace nBasysNews
                     Directory.CreateDirectory(tempDir);
 
                     //Console.ReadLine(); //中斷點1 建立
-                    
+
                     // 複製output再寫入 
                     File.Copy(targetFile, targetTempFile, true);
                     Log.Information("建立tempFolder");
 
                     // 寫入
                     var json = File.ReadAllText(targetTempFile); // 讀取複製出來的tempOutput.txt
-                    string nJson = json.Replace("\\n", "n");
+                    string nJson = json.Replace(@"\\n", @"\n"); //
+                    //string nJson = json.Replace("\uFEFF", ""); // \r\n換行
+                    //nJson.Replace("\\", "");
                     var content = JsonConvert.DeserializeObject<dynamic>(nJson);
 
                     int index = Convert.ToInt32(args[1]); // args[1]為輸入的則數
@@ -139,7 +141,7 @@ namespace nBasysNews
                         }
 
                         // 刪除temp檔路徑
-                        Directory.Delete(tempDir, true); 
+                        Directory.Delete(tempDir, true);
                         Log.Information("刪除tempFolder");
 
                         //Console.ReadLine(); //中斷點3 刪除 
@@ -153,7 +155,7 @@ namespace nBasysNews
                 else
                 {
                     Log.Information("密碼錯誤!");
-                }    
+                }
                 Log.Information("完成執行nBasysNews.exe");
             }
             catch (Exception ex)
@@ -162,7 +164,7 @@ namespace nBasysNews
                 Log.Error("例外狀況:{exception}", ex);
             }
             finally
-            {    
+            {
                 // 將最後剩餘的 Log 寫入到 Sinks 去
                 Log.CloseAndFlush();
             }

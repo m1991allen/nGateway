@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gateway.Properties {
+namespace nGateway.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -37,7 +37,7 @@ namespace Gateway.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\APR")]
         public string destinationDir {
             get {
                 return ((string)(this["destinationDir"]));

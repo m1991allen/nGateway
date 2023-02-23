@@ -7,27 +7,26 @@ using System.IO;
 using Serilog;
 using System.Threading;
 
-namespace Gateway
+namespace nGateway
 {
     static class Program
     {
+        private static System.Threading.Mutex mutex;
         /// <summary>
         /// 應用程式的主要進入點。
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-
-            // 防止程式多開
-            bool isAppRunning = false;
-            Mutex mutex = new Mutex(true, System.Diagnostics.Process.GetCurrentProcess().ProcessName, out isAppRunning);
-            if (!isAppRunning)
+            mutex = new System.Threading.Mutex(true, "OnlyRun");
+            if (mutex.WaitOne(0, false))
             {
-                MessageBox.Show("程式已開啟! 請勿再次啟動");
-                Environment.Exit(1);
+                Application.Run(new Form1());
+            }
+            else
+            {
+                MessageBox.Show("程式已經在執行！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
             }
 
             // LOG 程式執行狀況

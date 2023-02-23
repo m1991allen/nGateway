@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Gateway
+namespace nGateway
 {
     partial class Form1
     {
@@ -337,8 +337,10 @@ namespace Gateway
             this.Controls.Add(this.dateTimePicker);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Gateway";
+            this.Text = "nGateway";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
