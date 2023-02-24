@@ -55,7 +55,6 @@ D:\Project\NEXTTV-dev\nGateway\nBasysNews\bin\Debug\Serilog.xml
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\bin\Debug\Serilog.Sinks.Console.xml
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\bin\Debug\Serilog.Sinks.File.pdb
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\bin\Debug\Serilog.Sinks.File.xml
-D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csprojAssemblyReference.cache
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.Properties.Resources.resources
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.GenerateResource.cache
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.CoreCompileInputs.cache

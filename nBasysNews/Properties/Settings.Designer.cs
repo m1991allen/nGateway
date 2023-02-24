@@ -25,7 +25,7 @@ namespace nBasysNews.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir\\output.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\APR\\output.txt")]
         public string targetFile {
             get {
                 return ((string)(this["targetFile"]));
@@ -37,7 +37,7 @@ namespace nBasysNews.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\APR")]
         public string destDir {
             get {
                 return ((string)(this["destDir"]));
@@ -49,7 +49,7 @@ namespace nBasysNews.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\dir\\tempBasys")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\APR\\tempBasys")]
         public string tempDir {
             get {
                 return ((string)(this["tempDir"]));

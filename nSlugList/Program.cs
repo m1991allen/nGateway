@@ -42,13 +42,14 @@ namespace nSlugList
             string destDir = Properties.Settings.Default.destDir; // Gateway產出的output.txt的父層路徑
             string tempDir = Properties.Settings.Default.tempDir; // output.txt的複製暫存路徑
             string targetFile = Properties.Settings.Default.targetFile; // output.txt的位置
+            string slugListFile = Properties.Settings.Default.slugFIle; // 匯出檔名
 
             try
             {
                 if (args[1] == Properties.Settings.Default.password.ToString()) // 登入密碼 Properties.Settings.Default.password.ToString()
                 {
                     // 建立
-                    string fileName = Path.GetFileName("nSlug");
+                    string fileName = Path.GetFileName(slugListFile);
                     string targetDirFile = Path.Combine(destDir, (fileName + ".txt")); // 在路徑底下產生 nSlug.txt
                     
                     //先建立目標資料夾dir
