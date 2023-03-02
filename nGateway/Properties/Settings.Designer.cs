@@ -25,18 +25,6 @@ namespace nGateway.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SUBC1")]
-        public string deviceName {
-            get {
-                return ((string)(this["deviceName"]));
-            }
-            set {
-                this["deviceName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\0Selfsys\\APR")]
         public string destinationDir {
             get {
@@ -68,6 +56,42 @@ namespace nGateway.Properties {
             }
             set {
                 this["postBillitemList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SUBC1")]
+        public string deviceName {
+            get {
+                return ((string)(this["deviceName"]));
+            }
+            set {
+                this["deviceName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public string verNum {
+            get {
+                return ((string)(this["verNum"]));
+            }
+            set {
+                this["verNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0selfsys\\EXE\\main\\LOG\\")]
+        public string logDir {
+            get {
+                return ((string)(this["logDir"]));
+            }
+            set {
+                this["logDir"] = value;
             }
         }
     }

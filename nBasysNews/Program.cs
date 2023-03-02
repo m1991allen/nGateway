@@ -32,7 +32,7 @@ namespace nBasysNews
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
                 .WriteTo.Console() // 輸出至指令視窗
-                .WriteTo.File("log-.log", // 輸出至檔案
+                .WriteTo.File(Properties.Settings.Default.logDir+"log-.log", // 輸出至檔案
                     rollingInterval: RollingInterval.Day, // 每天一個檔案
                     outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
                 ) // 輸出到檔案 如:log-20221130.log
@@ -86,14 +86,16 @@ namespace nBasysNews
                         {
                             // 輸入則數 前面不足5則 
                             // eg.輸入5，前面只有1-4共4則，列出範圍為1 2 3 "4" 5 6 7 8 9(列出9則)
-                            if (index < indexRange)
+                            if (index <= indexRange)
                             {
                                 for (int i = 0; i < index + indexRange; i++)
                                 {
                                     string indexFile = Path.Combine(destDir, ((i + 1) + ".txt")); // 在路徑底下為產生檔案 [index].txt
                                     using (StreamWriter writer = new StreamWriter(indexFile)) // 寫進create的 [index].txt
                                     {
+                                        writer.WriteLine("SLUG");                                        
                                         writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                        writer.WriteLine("CONTENT");
                                         writer.WriteLine(content[i].billItemContent);
                                     }
                                 }
@@ -107,7 +109,9 @@ namespace nBasysNews
                                     string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
                                     using (StreamWriter writer = new StreamWriter(indexFile))
                                     {
+                                        writer.WriteLine("SLUG");
                                         writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                        writer.WriteLine("CONTENT");
                                         writer.WriteLine(content[i].billItemContent);
                                     }
                                 }
@@ -121,7 +125,9 @@ namespace nBasysNews
                                     string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
                                     using (StreamWriter writer = new StreamWriter(indexFile))
                                     {
+                                        writer.WriteLine("SLUG");
                                         writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                        writer.WriteLine("CONTENT");
                                         writer.WriteLine(content[i].billItemContent);
                                     }
                                 }
@@ -134,7 +140,9 @@ namespace nBasysNews
                                 string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
                                 using (StreamWriter writer = new StreamWriter(indexFile))
                                 {
+                                    writer.WriteLine("SLUG");
                                     writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                    writer.WriteLine("CONTENT");
                                     writer.WriteLine(content[i].billItemContent);
                                 }
                             }

@@ -25,12 +25,14 @@ namespace nGateway
         string destinationDir = Properties.Settings.Default.destinationDir;
         string deviceName = Properties.Settings.Default.deviceName;
         string targetDir = Properties.Settings.Default.destinationDir;
+        string ver = Properties.Settings.Default.verNum;
+
 
         public Form1()
         {
             InitializeComponent();
+            this.verNum.Text = ver;
             this.KeyPreview = true;
-            _destinationDir.Text = destinationDir;
             _deviceName.Text = deviceName;
             _countdownSec.Text = _count.Text;
             Directory.CreateDirectory(targetDir); // 建立目標資料夾APR
@@ -55,6 +57,7 @@ namespace nGateway
                         _status.Text = "停止 ■";
                         _status.ForeColor = Color.Red;
                         start_btn.Text = "啟動(S)";
+                        this._api.Text = "";
                         start_btn.BackColor = SystemColors.Highlight;
                         _countdownSec.ForeColor = SystemColors.Highlight;
 

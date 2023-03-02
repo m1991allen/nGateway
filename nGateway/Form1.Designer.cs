@@ -50,17 +50,20 @@ namespace nGateway
             this._count = new System.Windows.Forms.TextBox();
             this.lab2 = new System.Windows.Forms.Label();
             this.path_lab = new System.Windows.Forms.Label();
-            this._destinationDir = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_QueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_QueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.deviceName_lab = new System.Windows.Forms.Label();
             this._deviceName = new System.Windows.Forms.Label();
             this.api_status = new System.Windows.Forms.Label();
             this._api = new System.Windows.Forms.Label();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.verNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker
@@ -76,9 +79,9 @@ namespace nGateway
             this.postQueue_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.postQueue_btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.postQueue_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.postQueue_btn.Location = new System.Drawing.Point(183, 25);
+            this.postQueue_btn.Location = new System.Drawing.Point(216, 25);
             this.postQueue_btn.Name = "postQueue_btn";
-            this.postQueue_btn.Size = new System.Drawing.Size(151, 30);
+            this.postQueue_btn.Size = new System.Drawing.Size(211, 30);
             this.postQueue_btn.TabIndex = 1;
             this.postQueue_btn.Text = "取Queue(G)";
             this.postQueue_btn.Click += new System.EventHandler(this.PostQueue_btn_click);
@@ -89,9 +92,9 @@ namespace nGateway
             this.start_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.start_btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.start_btn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.start_btn.Location = new System.Drawing.Point(340, 16);
+            this.start_btn.Location = new System.Drawing.Point(459, 16);
             this.start_btn.Name = "start_btn";
-            this.start_btn.Size = new System.Drawing.Size(118, 48);
+            this.start_btn.Size = new System.Drawing.Size(211, 48);
             this.start_btn.TabIndex = 2;
             this.start_btn.Text = "啟動(S)";
             this.start_btn.UseVisualStyleBackColor = false;
@@ -101,7 +104,7 @@ namespace nGateway
             // 
             this.status_lab.AutoSize = true;
             this.status_lab.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.status_lab.Location = new System.Drawing.Point(488, 128);
+            this.status_lab.Location = new System.Drawing.Point(693, 132);
             this.status_lab.Name = "status_lab";
             this.status_lab.Size = new System.Drawing.Size(57, 20);
             this.status_lab.TabIndex = 4;
@@ -112,7 +115,7 @@ namespace nGateway
             this._status.AutoSize = true;
             this._status.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._status.ForeColor = System.Drawing.Color.Red;
-            this._status.Location = new System.Drawing.Point(625, 123);
+            this._status.Location = new System.Drawing.Point(830, 127);
             this._status.Name = "_status";
             this._status.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this._status.Size = new System.Drawing.Size(72, 26);
@@ -123,7 +126,7 @@ namespace nGateway
             // 
             this.count_lab.AutoSize = true;
             this.count_lab.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.count_lab.Location = new System.Drawing.Point(488, 184);
+            this.count_lab.Location = new System.Drawing.Point(693, 188);
             this.count_lab.Name = "count_lab";
             this.count_lab.Size = new System.Drawing.Size(115, 20);
             this.count_lab.TabIndex = 6;
@@ -133,7 +136,7 @@ namespace nGateway
             // 
             this.lab1.AutoSize = true;
             this.lab1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lab1.Location = new System.Drawing.Point(484, 290);
+            this.lab1.Location = new System.Drawing.Point(689, 294);
             this.lab1.Name = "lab1";
             this.lab1.Size = new System.Drawing.Size(61, 30);
             this.lab1.TabIndex = 7;
@@ -145,7 +148,7 @@ namespace nGateway
             this._countdownSec.AutoSize = true;
             this._countdownSec.Font = new System.Drawing.Font("Segoe UI", 99F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._countdownSec.ForeColor = System.Drawing.SystemColors.Highlight;
-            this._countdownSec.Location = new System.Drawing.Point(565, 217);
+            this._countdownSec.Location = new System.Drawing.Point(770, 221);
             this._countdownSec.Name = "_countdownSec";
             this._countdownSec.Size = new System.Drawing.Size(151, 176);
             this._countdownSec.TabIndex = 8;
@@ -158,7 +161,7 @@ namespace nGateway
             this._count.Cursor = System.Windows.Forms.Cursors.Default;
             this._count.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._count.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._count.Location = new System.Drawing.Point(639, 176);
+            this._count.Location = new System.Drawing.Point(844, 180);
             this._count.Name = "_count";
             this._count.Size = new System.Drawing.Size(53, 35);
             this._count.TabIndex = 12;
@@ -170,7 +173,7 @@ namespace nGateway
             // 
             this.lab2.AutoSize = true;
             this.lab2.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lab2.Location = new System.Drawing.Point(744, 290);
+            this.lab2.Location = new System.Drawing.Point(949, 294);
             this.lab2.Name = "lab2";
             this.lab2.Size = new System.Drawing.Size(37, 30);
             this.lab2.TabIndex = 9;
@@ -181,24 +184,12 @@ namespace nGateway
             // 
             this.path_lab.AutoSize = true;
             this.path_lab.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.path_lab.Location = new System.Drawing.Point(486, 373);
+            this.path_lab.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.path_lab.Location = new System.Drawing.Point(947, 429);
             this.path_lab.Name = "path_lab";
-            this.path_lab.Size = new System.Drawing.Size(89, 20);
+            this.path_lab.Size = new System.Drawing.Size(21, 20);
             this.path_lab.TabIndex = 11;
-            this.path_lab.Text = "目標路徑：";
-            this.path_lab.Visible = false;
-            // 
-            // _destinationDir
-            // 
-            this._destinationDir.BackColor = System.Drawing.SystemColors.GrayText;
-            this._destinationDir.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this._destinationDir.ForeColor = System.Drawing.Color.Silver;
-            this._destinationDir.Location = new System.Drawing.Point(490, 396);
-            this._destinationDir.Name = "_destinationDir";
-            this._destinationDir.ReadOnly = true;
-            this._destinationDir.Size = new System.Drawing.Size(284, 29);
-            this._destinationDir.TabIndex = 13;
-            this._destinationDir.Visible = false;
+            this.path_lab.Text = "v.";
             // 
             // dataGridView
             // 
@@ -217,8 +208,9 @@ namespace nGateway
             this.dataGridView.ColumnHeadersHeight = 30;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Date,
-            this.Column_QueueName,
-            this.GUID});
+            this.billTitle,
+            this.GUID,
+            this.Column_QueueName});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -227,14 +219,14 @@ namespace nGateway
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView.Location = new System.Drawing.Point(16, 78);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(446, 351);
+            this.dataGridView.Size = new System.Drawing.Size(654, 351);
             this.dataGridView.TabIndex = 14;
             this.dataGridView.Tag = "";
             // 
@@ -246,18 +238,15 @@ namespace nGateway
             this.Column_Date.MinimumWidth = 20;
             this.Column_Date.Name = "Column_Date";
             this.Column_Date.ReadOnly = true;
-            this.Column_Date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column_Date.Width = 220;
+            this.Column_Date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_Date.Width = 200;
             // 
-            // Column_QueueName
+            // billTitle
             // 
-            this.Column_QueueName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_QueueName.DataPropertyName = "columnName";
-            this.Column_QueueName.HeaderText = "QueueName";
-            this.Column_QueueName.MinimumWidth = 10;
-            this.Column_QueueName.Name = "Column_QueueName";
-            this.Column_QueueName.ReadOnly = true;
-            this.Column_QueueName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.billTitle.DataPropertyName = "billTitle";
+            this.billTitle.HeaderText = "billTitle";
+            this.billTitle.Name = "billTitle";
+            this.billTitle.ReadOnly = true;
             // 
             // GUID
             // 
@@ -268,6 +257,15 @@ namespace nGateway
             this.GUID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.GUID.Visible = false;
             // 
+            // Column_QueueName
+            // 
+            this.Column_QueueName.DataPropertyName = "columnName";
+            this.Column_QueueName.HeaderText = "QueueName";
+            this.Column_QueueName.MinimumWidth = 10;
+            this.Column_QueueName.Name = "Column_QueueName";
+            this.Column_QueueName.ReadOnly = true;
+            this.Column_QueueName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // Timer1
             // 
             this.Timer1.Enabled = true;
@@ -277,7 +275,7 @@ namespace nGateway
             // 
             this.deviceName_lab.AutoSize = true;
             this.deviceName_lab.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.deviceName_lab.Location = new System.Drawing.Point(488, 77);
+            this.deviceName_lab.Location = new System.Drawing.Point(693, 81);
             this.deviceName_lab.Name = "deviceName_lab";
             this.deviceName_lab.Size = new System.Drawing.Size(57, 20);
             this.deviceName_lab.TabIndex = 16;
@@ -288,7 +286,7 @@ namespace nGateway
             this._deviceName.AutoSize = true;
             this._deviceName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._deviceName.ForeColor = System.Drawing.SystemColors.Highlight;
-            this._deviceName.Location = new System.Drawing.Point(634, 74);
+            this._deviceName.Location = new System.Drawing.Point(839, 78);
             this._deviceName.Name = "_deviceName";
             this._deviceName.Size = new System.Drawing.Size(67, 26);
             this._deviceName.TabIndex = 17;
@@ -313,17 +311,33 @@ namespace nGateway
             this._api.Size = new System.Drawing.Size(0, 21);
             this._api.TabIndex = 19;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // verNum
+            // 
+            this.verNum.AutoSize = true;
+            this.verNum.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.verNum.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.verNum.Location = new System.Drawing.Point(967, 430);
+            this.verNum.Name = "verNum";
+            this.verNum.Size = new System.Drawing.Size(13, 20);
+            this.verNum.TabIndex = 20;
+            this.verNum.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 458);
+            this.ClientSize = new System.Drawing.Size(1010, 458);
+            this.Controls.Add(this.verNum);
             this.Controls.Add(this._api);
             this.Controls.Add(this.api_status);
             this.Controls.Add(this._deviceName);
             this.Controls.Add(this.deviceName_lab);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this._destinationDir);
             this.Controls.Add(this._count);
             this.Controls.Add(this.path_lab);
             this.Controls.Add(this.lab2);
@@ -337,11 +351,11 @@ namespace nGateway
             this.Controls.Add(this.dateTimePicker);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "nGateway";
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.Text = "Gateway";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,16 +374,18 @@ namespace nGateway
         private System.Windows.Forms.Label lab2;
         private System.Windows.Forms.Label path_lab;
         private System.Windows.Forms.TextBox _count;
-        private System.Windows.Forms.TextBox _destinationDir;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Label deviceName_lab;
         private System.Windows.Forms.Label _deviceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_QueueName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
         private System.Windows.Forms.Label api_status;
         private System.Windows.Forms.Label _api;
+        private FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn billTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_QueueName;
+        private System.Windows.Forms.Label verNum;
     }
 }
 

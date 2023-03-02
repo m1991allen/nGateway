@@ -70,5 +70,17 @@ namespace nBasysNews.Properties {
                 this["password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0selfsys\\EXE\\nBasysNews\\LOG\\")]
+        public string logDir {
+            get {
+                return ((string)(this["logDir"]));
+            }
+            set {
+                this["logDir"] = value;
+            }
+        }
     }
 }

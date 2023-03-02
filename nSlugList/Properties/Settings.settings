@@ -15,7 +15,10 @@
       <Value Profile="(Default)">56178</Value>
     </Setting>
     <Setting Name="slugFIle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sluglist</Value>
+      <Value Profile="(Default)">slug</Value>
+    </Setting>
+    <Setting Name="logDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\0selfsys\EXE\nSlugList\LOG\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

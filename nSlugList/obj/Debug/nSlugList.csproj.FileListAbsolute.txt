@@ -57,3 +57,4 @@ D:\Project\NEXTTV-dev\nGateway\nSlugList\obj\Debug\nSlugList.csproj.CoreCompileI
 D:\Project\NEXTTV-dev\nGateway\nSlugList\obj\Debug\nSlugList.csproj.CopyComplete
 D:\Project\NEXTTV-dev\nGateway\nSlugList\obj\Debug\nSlugList.exe
 D:\Project\NEXTTV-dev\nGateway\nSlugList\obj\Debug\nSlugList.pdb
+D:\Project\NEXTTV-dev\nGateway\nSlugList\obj\Debug\nSlugList.csprojAssemblyReference.cache

@@ -73,13 +73,25 @@ namespace nSlugList.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sluglist")]
+        [global::System.Configuration.DefaultSettingValueAttribute("slug")]
         public string slugFIle {
             get {
                 return ((string)(this["slugFIle"]));
             }
             set {
                 this["slugFIle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\0selfsys\\EXE\\nSlugList\\LOG\\")]
+        public string logDir {
+            get {
+                return ((string)(this["logDir"]));
+            }
+            set {
+                this["logDir"] = value;
             }
         }
     }

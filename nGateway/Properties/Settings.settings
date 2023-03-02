@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="nGateway.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="deviceName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SUBC1</Value>
-    </Setting>
     <Setting Name="destinationDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0Selfsys\APR</Value>
     </Setting>
@@ -13,6 +10,15 @@
     </Setting>
     <Setting Name="postBillitemList" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://172.20.142.35/NEXTTV_API_SIMULATION/DYNewsService/hulian/getNewsList</Value>
+    </Setting>
+    <Setting Name="deviceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SUBC1</Value>
+    </Setting>
+    <Setting Name="verNum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="logDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\0selfsys\EXE\main\LOG\</Value>
     </Setting>
   </Settings>
 </SettingsFile>
