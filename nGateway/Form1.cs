@@ -35,7 +35,7 @@ namespace nGateway
             _deviceName.Text = deviceName;
             _countdownSec.Text = _count.Text;
             Directory.CreateDirectory(targetDir); // 建立目標資料夾APR\
-            this.setting_btn.Visible = false;
+            this.setting_btn.Visible = false; // 讓使用者可以設定API及棚位
         }
 
         // 控制 啟動/關閉 倒數
