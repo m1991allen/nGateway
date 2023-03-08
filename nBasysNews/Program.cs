@@ -94,7 +94,7 @@ namespace nBasysNews
                                     using (StreamWriter writer = new StreamWriter(indexFile)) // 寫進create的 [index].txt
                                     {
                                         writer.WriteLine("SLUG");                                        
-                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID.trim(), content[i].billItemTitle);
                                         writer.WriteLine("CONTENT");
                                         writer.WriteLine(content[i].billItemContent);
                                     }

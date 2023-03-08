@@ -80,7 +80,7 @@ namespace nSlugList
                         foreach (var ctd in content)
                         {
                             //Console.WriteLine(ctd.billItemTitle);
-                            writer.WriteLine(ctd.billItemTitle);
+                            writer.WriteLine("【"+ctd.billItemActualID+ "】" + ctd.billItemTitle);
                         }
                     }
                     Log.Information("寫入nSlug.txt");

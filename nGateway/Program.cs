@@ -21,7 +21,7 @@ namespace nGateway
             mutex = new System.Threading.Mutex(true, "OnlyRun");
             if (mutex.WaitOne(0, false))
             {
-                Application.Run(new Form1());
+                Application.Run(new mainForm());
             }
             else
             {

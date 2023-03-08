@@ -6,7 +6,7 @@ using System.Text;
 
 namespace nGateway
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -38,7 +38,7 @@ namespace nGateway
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.postQueue_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
@@ -62,8 +62,10 @@ namespace nGateway
             this._api = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.verNum = new System.Windows.Forms.Label();
+            this.setting_btn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setting_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker
@@ -327,11 +329,23 @@ namespace nGateway
             this.verNum.TabIndex = 20;
             this.verNum.Text = " ";
             // 
-            // Form1
+            // setting_btn
+            // 
+            this.setting_btn.Image = global::nGateway.Properties.Resources.gear;
+            this.setting_btn.Location = new System.Drawing.Point(954, 16);
+            this.setting_btn.Name = "setting_btn";
+            this.setting_btn.Size = new System.Drawing.Size(45, 39);
+            this.setting_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.setting_btn.TabIndex = 22;
+            this.setting_btn.TabStop = false;
+            this.setting_btn.Click += new System.EventHandler(this.setting_btn_Click);
+            // 
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 458);
+            this.Controls.Add(this.setting_btn);
             this.Controls.Add(this.verNum);
             this.Controls.Add(this._api);
             this.Controls.Add(this.api_status);
@@ -350,12 +364,13 @@ namespace nGateway
             this.Controls.Add(this.postQueue_btn);
             this.Controls.Add(this.dateTimePicker);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "mainForm";
             this.Text = "Gateway";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setting_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,7 +392,6 @@ namespace nGateway
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Label deviceName_lab;
-        private System.Windows.Forms.Label _deviceName;
         private System.Windows.Forms.Label api_status;
         private System.Windows.Forms.Label _api;
         private FileSystemWatcher fileSystemWatcher1;
@@ -386,6 +400,8 @@ namespace nGateway
         private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_QueueName;
         private System.Windows.Forms.Label verNum;
+        private System.Windows.Forms.PictureBox setting_btn;
+        public System.Windows.Forms.Label _deviceName;
     }
 }
 

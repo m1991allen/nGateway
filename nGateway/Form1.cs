@@ -20,22 +20,22 @@ using Serilog;
 
 namespace nGateway
 {
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
         string destinationDir = Properties.Settings.Default.destinationDir;
-        string deviceName = Properties.Settings.Default.deviceName;
         string targetDir = Properties.Settings.Default.destinationDir;
         string ver = Properties.Settings.Default.verNum;
+        public string deviceName = Properties.Settings.Default.deviceName;
 
-
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
             this.verNum.Text = ver;
             this.KeyPreview = true;
             _deviceName.Text = deviceName;
             _countdownSec.Text = _count.Text;
-            Directory.CreateDirectory(targetDir); // 建立目標資料夾APR
+            Directory.CreateDirectory(targetDir); // 建立目標資料夾APR\
+            this.setting_btn.Visible = false;
         }
 
         // 控制 啟動/關閉 倒數
@@ -302,6 +302,15 @@ namespace nGateway
                 // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
+        }
+
+        private void setting_btn_Click(object sender, EventArgs e)
+        {
+            //var settingForm = new ConfigForm();
+            //settingForm.Show();
+
+            //_deviceName.Text = settingForm.setDeviceName();
+
         }
     }
 }
