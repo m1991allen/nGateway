@@ -6,7 +6,7 @@ using System.Text;
 
 namespace nGateway
 {
-    partial class mainForm
+    partial class Form1
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -38,7 +38,7 @@ namespace nGateway
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.postQueue_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
@@ -338,9 +338,8 @@ namespace nGateway
             this.setting_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.setting_btn.TabIndex = 22;
             this.setting_btn.TabStop = false;
-            this.setting_btn.Click += new System.EventHandler(this.setting_btn_Click);
             // 
-            // mainForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -364,7 +363,7 @@ namespace nGateway
             this.Controls.Add(this.postQueue_btn);
             this.Controls.Add(this.dateTimePicker);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "mainForm";
+            this.Name = "Form1";
             this.Text = "Gateway";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);

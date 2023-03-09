@@ -20,14 +20,14 @@ using Serilog;
 
 namespace nGateway
 {
-    public partial class mainForm : Form
+    public partial class Form1 : Form
     {
         string destinationDir = Properties.Settings.Default.destinationDir;
         string targetDir = Properties.Settings.Default.destinationDir;
         string ver = Properties.Settings.Default.verNum;
         public string deviceName = Properties.Settings.Default.deviceName;
 
-        public mainForm()
+        public Form1()
         {
             InitializeComponent();
             this.verNum.Text = ver;
@@ -302,14 +302,6 @@ namespace nGateway
                 // 將最後剩餘的 Log 寫入到 Sinks
                 Log.CloseAndFlush();
             }
-        }
-
-        private void setting_btn_Click(object sender, EventArgs e)
-        {
-            //var settingForm = new ConfigForm();
-            //settingForm.Show();
-            //_deviceName.Text = settingForm.setDeviceName();
-
         }
     }
 }
