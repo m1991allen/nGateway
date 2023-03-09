@@ -308,7 +308,6 @@ namespace nGateway
         {
             //var settingForm = new ConfigForm();
             //settingForm.Show();
-
             //_deviceName.Text = settingForm.setDeviceName();
 
         }
