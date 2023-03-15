@@ -79,8 +79,8 @@ namespace nSlugList
                     {
                         foreach (var ctd in content)
                         {
-                            //Console.WriteLine(ctd.billItemTitle);
-                            writer.WriteLine("【"+ctd.billItemActualID+ "】" + ctd.billItemTitle);
+                            
+                            writer.WriteLine("【"+ string.Format("{0,3}", ctd.billItemActualID)+ "】" + ctd.billItemTitle);
                         }
                     }
                     Log.Information("寫入nSlug.txt");

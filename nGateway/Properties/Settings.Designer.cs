@@ -73,7 +73,7 @@ namespace nGateway.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.1")]
         public string verNum {
             get {
                 return ((string)(this["verNum"]));
