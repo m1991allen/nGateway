@@ -14,6 +14,7 @@ using System.Web;
 using System.Configuration;
 using Serilog;
 using Newtonsoft.Json;
+using Microsoft.VisualBasic;
 
 namespace nSlugList
 {
@@ -31,7 +32,7 @@ namespace nSlugList
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
-                //.WriteTo.Console() // 輸出至指令視窗
+                                        //.WriteTo.Console() // 輸出至指令視窗
                 .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
                     rollingInterval: RollingInterval.Day, // 每天一個檔案
                     outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
@@ -51,9 +52,9 @@ namespace nSlugList
                     // 建立
                     string fileName = Path.GetFileName(slugListFile);
                     string targetDirFile = Path.Combine(destDir, (fileName + ".txt")); // 在路徑底下產生 nSlug.txt
-                    
+
                     // 先建立目標資料夾dir
-                    string targetDir = Properties.Settings.Default.destDir; 
+                    string targetDir = Properties.Settings.Default.destDir;
                     if (Directory.Exists(targetDir))
                     {
                         Log.Information("資料夾已存在");
@@ -69,7 +70,6 @@ namespace nSlugList
                     Log.Information("建立tempFolder");
 
                     //Console.ReadLine(); //中斷點1 建立
-
                     File.Copy(targetFile, targetTempFile, true);
 
                     var json = File.ReadAllText(targetTempFile); // 讀取複製出來的tempOutput.txt
@@ -79,21 +79,26 @@ namespace nSlugList
                     {
                         foreach (var ctd in content)
                         {
-                            
-                            writer.WriteLine("【"+ string.Format("{0,3}", ctd.billItemActualID)+ "】" + ctd.billItemTitle);
+                            writer.WriteLine("【" + string.Format("{0,3}", ctd.billItemActualID) + "】" + ctd.billItemTitle);
                         }
                     }
-                    Log.Information("寫入nSlug.txt");
+                    var contentNew = File.ReadAllText(targetDirFile); // 讀Slug.txt替換英數為全形
+                    contentNew = Strings.StrConv(contentNew, VbStrConv.Wide);
+                    Console.WriteLine(contentNew);
 
+                    using (StreamWriter writer = new StreamWriter(targetDirFile)) // 再次寫進新建的Slug.txt中
+                    {
+                        writer.WriteLine(contentNew);
+                    }
+                    Log.Information("寫入nSlug.txt");
                     //Console.ReadLine(); //中斷點2 寫入
                 }
                 else
                 {
-                    //Console.WriteLine("密碼錯誤!");
+                    Console.WriteLine("密碼錯誤!");
                     Log.Information("密碼錯誤!");
                 }
                 Directory.Delete(tempDir, true);
-
                 //Console.ReadLine(); //中斷點3 刪除
 
                 Log.Information("刪除tempFolder");
