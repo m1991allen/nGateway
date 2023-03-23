@@ -15,7 +15,7 @@
       <Value Profile="(Default)">SUBC1</Value>
     </Setting>
     <Setting Name="verNum" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.1</Value>
+      <Value Profile="(Default)">1.2</Value>
     </Setting>
     <Setting Name="logDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0selfsys\EXE\main\LOG\</Value>

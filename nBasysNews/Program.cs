@@ -115,6 +115,18 @@ namespace nBasysNews
                                         writer.WriteLine(content[i].billItemContent);
                                     }
                                 }
+                                for (int i = indexLeng; i < indexLeng + 5; i++)
+                                {
+                                    // 最後再產5則提醒已到底
+                                    string indexFileFinalHint = Path.Combine(destDir, ((i + 1) + ".txt"));
+                                    using (StreamWriter writer = new StreamWriter(indexFileFinalHint))
+                                    {
+                                        writer.WriteLine("已經沒了喔!");
+                                        writer.WriteLine("已經沒了喔!!");
+                                        writer.WriteLine("已經沒了喔!!!");
+
+                                    }
+                                }
                             }
                             // 該節次前後有足夠5則
                             // eg.全文共11則，輸入6，列出範圍為1 2 3 4 5 "6" 7 8 9 10 11(列出11則)
@@ -144,6 +156,18 @@ namespace nBasysNews
                                     writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
                                     writer.WriteLine("CONTENT");
                                     writer.WriteLine(content[i].billItemContent);
+                                }
+                            }
+                            for (int i = indexLeng; i < indexLeng + 5; i++)
+                            {
+                                // 最後再產5則提醒已到底
+                                string indexFileFinalHint = Path.Combine(destDir, ((i + 1) + ".txt"));
+                                using (StreamWriter writer = new StreamWriter(indexFileFinalHint))
+                                {
+                                    writer.WriteLine("已經沒了喔!");
+                                    writer.WriteLine("已經沒了喔!!");
+                                    writer.WriteLine("已經沒了喔!!!");
+
                                 }
                             }
                         }
