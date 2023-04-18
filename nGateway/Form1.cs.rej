@@ -1,0 +1,9 @@
+diff a/nGateway/Form1.cs b/nGateway/Form1.cs	(rejected hunks)
+@@ -171,7 +171,6 @@
+         private void PostQueue_btn_click(object sender, EventArgs e)
+         {
+             PostQueue();
+-
+         }
+ 
+         private void Form1_KeyDown(object sender, KeyEventArgs i)

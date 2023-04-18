@@ -82,7 +82,8 @@ namespace nBasysNews
 
                     if (index > 0 && index <= indexLeng) // 輸入的值為1~indexLeng
                     {
-                        if (indexLeng > 10) // 該節次前後都足夠5則，indexLeng最少11則
+                        // 該節次前後都足夠5則，indexLeng最少11則
+                        if (indexLeng > 10) 
                         {
                             // 輸入則數 前面不足5則 
                             // eg.輸入5，前面只有1-4共4則，列出範圍為1 2 3 "4" 5 6 7 8 9(列出9則)
@@ -94,7 +95,7 @@ namespace nBasysNews
                                     using (StreamWriter writer = new StreamWriter(indexFile)) // 寫進create的 [index].txt
                                     {
                                         writer.WriteLine("SLUG");                                        
-                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID.trim(), content[i].billItemTitle);
+                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
                                         writer.WriteLine("CONTENT");
                                         writer.WriteLine(content[i].billItemContent);
                                     }
