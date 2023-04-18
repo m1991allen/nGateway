@@ -41,6 +41,15 @@ namespace nGateway
         // 控制 啟動/關閉 倒數
         private void Start_btn_click(object sender, System.EventArgs e)
         {
+            // LOG 程式執行狀況
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
             try
             {
                 this._api.Text = "";
@@ -102,6 +111,15 @@ namespace nGateway
         // 控制 啟動/關閉 倒數 _綁定快捷鍵
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+            // LOG 程式執行狀況
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
             try
             {
                 if (e.KeyCode == Keys.S)
@@ -170,12 +188,29 @@ namespace nGateway
         // 呼叫queue
         private void PostQueue_btn_click(object sender, EventArgs e)
         {
+            // LOG 程式執行狀況
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
             PostQueue();
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs i)
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
+
             if (i.Control && i.KeyCode == Keys.Q)
             {
                 string data = PostQueue();
@@ -186,6 +221,16 @@ namespace nGateway
         // Post Rundown API (getBillList)
         string PostQueue()
         {
+            // LOG 程式執行狀況
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
+
             HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postBillList);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
@@ -251,6 +296,15 @@ namespace nGateway
         // Post News API　(getBillitemList)
         void PostNews()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
+                .WriteTo.Console() // 輸出至指令視窗
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
+                    rollingInterval: RollingInterval.Day, // 每天一個檔案
+                    outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
+                ) // 輸出到檔案 如:log-20221130.log
+                .CreateLogger();
+
             HttpWebRequest httpwebReguest = (HttpWebRequest)HttpWebRequest.Create(Properties.Settings.Default.postBillitemList);
             httpwebReguest.Method = "POST";
             httpwebReguest.ContentType = "application/json; charset=utf-8";
