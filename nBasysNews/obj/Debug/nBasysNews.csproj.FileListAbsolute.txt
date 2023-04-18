@@ -61,4 +61,3 @@ D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.CoreCompil
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csproj.CopyComplete
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.exe
 D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.pdb
-D:\Project\NEXTTV-dev\nGateway\nBasysNews\obj\Debug\nBasysNews.csprojAssemblyReference.cache

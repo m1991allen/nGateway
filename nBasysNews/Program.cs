@@ -32,7 +32,7 @@ namespace nBasysNews
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose() // 設定最低顯示層級 預設: Information
                 .WriteTo.Console() // 輸出至指令視窗
-                .WriteTo.File(Properties.Settings.Default.logDir+"log-.log", // 輸出至檔案
+                .WriteTo.File(Properties.Settings.Default.logDir + "log-.log", // 輸出至檔案
                     rollingInterval: RollingInterval.Day, // 每天一個檔案
                     outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u5}] {Message:lj}{NewLine}{Exception}"
                 ) // 輸出到檔案 如:log-20221130.log
