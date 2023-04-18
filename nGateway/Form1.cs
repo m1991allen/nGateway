@@ -33,7 +33,7 @@ namespace nGateway
             this.verNum.Text = ver;
             this.KeyPreview = true;
             _deviceName.Text = deviceName;
-            _countdownSec.Text = _count.Text;
+            _countdownSec.Text = _count.Text; 
             Directory.CreateDirectory(targetDir); // 建立目標資料夾APR\
             this.setting_btn.Visible = false; // 讓使用者可以設定API及棚位
         }
@@ -51,7 +51,7 @@ namespace nGateway
                 else
                 {
                     PostNews();
-                    _countdownSec.Text = _count.Text;
+                    _countdownSec.Text = (int.Parse(_count.Text) - 1).ToString();
                     if (_status.Text == "讀秒 ▶")
                     {
                         _status.Text = "停止 ■";
@@ -148,7 +148,7 @@ namespace nGateway
             else
             {
                 //讀完秒後重複產生txt檔
-                c = int.Parse(_count.Text);
+                c = (int.Parse(_count.Text) - 1);
                 _countdownSec.ForeColor = SystemColors.Highlight;
                 PostNews();
             }
