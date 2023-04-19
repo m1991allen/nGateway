@@ -24,13 +24,11 @@ namespace nGateway
     {
         string destinationDir = Properties.Settings.Default.destinationDir;
         string targetDir = Properties.Settings.Default.destinationDir;
-        string ver = Properties.Settings.Default.verNum;
         public string deviceName = Properties.Settings.Default.deviceName;
 
         public Form1()
         {
             InitializeComponent();
-            this.verNum.Text = ver;
             this.KeyPreview = true;
             _deviceName.Text = deviceName;
             _countdownSec.Text = _count.Text; 

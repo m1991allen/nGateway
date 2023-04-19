@@ -82,17 +82,5 @@ namespace nGateway.Properties {
                 this["logDir"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.3")]
-        public string verNum {
-            get {
-                return ((string)(this["verNum"]));
-            }
-            set {
-                this["verNum"] = value;
-            }
-        }
     }
 }

@@ -17,8 +17,5 @@
     <Setting Name="logDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\0selfsys\EXE\main\LOG\</Value>
     </Setting>
-    <Setting Name="verNum" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.3</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
