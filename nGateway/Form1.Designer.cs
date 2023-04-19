@@ -187,7 +187,7 @@ namespace nGateway
             this.path_lab.AutoSize = true;
             this.path_lab.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.path_lab.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.path_lab.Location = new System.Drawing.Point(920, 428);
+            this.path_lab.Location = new System.Drawing.Point(908, 428);
             this.path_lab.Name = "path_lab";
             this.path_lab.Size = new System.Drawing.Size(21, 20);
             this.path_lab.TabIndex = 11;
@@ -323,11 +323,11 @@ namespace nGateway
             this.verNum.AutoSize = true;
             this.verNum.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.verNum.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.verNum.Location = new System.Drawing.Point(932, 429);
+            this.verNum.Location = new System.Drawing.Point(925, 429);
             this.verNum.Name = "verNum";
-            this.verNum.Size = new System.Drawing.Size(67, 20);
+            this.verNum.Size = new System.Drawing.Size(83, 20);
             this.verNum.TabIndex = 20;
-            this.verNum.Text = " 230419";
+            this.verNum.Text = " 230419-1";
             // 
             // setting_btn
             // 

@@ -69,9 +69,7 @@ namespace nBasysNews
 
                     // 寫入
                     var json = File.ReadAllText(targetTempFile); // 讀取複製出來的tempOutput.txt
-                    string nJson = json.Replace(@"\\n", @"\n"); //
-                    //string nJson = json.Replace("\uFEFF", ""); // \r\n換行
-                    //nJson.Replace("\\", "");
+                    string nJson = json.Replace(@"\\n", @"\n");
                     var content = JsonConvert.DeserializeObject<dynamic>(nJson);
 
                     int index = Convert.ToInt32(args[1]); // args[1]為輸入的則數
@@ -83,7 +81,7 @@ namespace nBasysNews
                     if (index > 0 && index <= indexLeng) // 輸入的值為1~indexLeng
                     {
                         // 該節次前後都足夠5則，indexLeng最少11則
-                        if (indexLeng > 10) 
+                        if (indexLeng > 10)
                         {
                             // 輸入則數 前面不足5則 
                             // eg.輸入5，前面只有1-4共4則，列出範圍為1 2 3 "4" 5 6 7 8 9(列出9則)
@@ -91,13 +89,17 @@ namespace nBasysNews
                             {
                                 for (int i = 0; i < index + indexRange; i++)
                                 {
-                                    string indexFile = Path.Combine(destDir, ((i + 1) + ".txt")); // 在路徑底下為產生檔案 [index].txt
-                                    using (StreamWriter writer = new StreamWriter(indexFile)) // 寫進create的 [index].txt
+                                    string cont = content[i].billItemContent;
+                                    if (cont.Length > 10)
                                     {
-                                        writer.WriteLine("SLUG");                                        
-                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
-                                        writer.WriteLine("CONTENT");
-                                        writer.WriteLine(content[i].billItemContent);
+                                        string indexFile = Path.Combine(destDir, ((i + 1) + ".txt")); // 在路徑底下為產生檔案 [index].txt
+                                        using (StreamWriter writer = new StreamWriter(indexFile)) // 寫進create的 [index].txt
+                                        {
+                                            writer.WriteLine("SLUG");
+                                            writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                            writer.WriteLine("CONTENT");
+                                            writer.WriteLine(content[i].billItemContent);
+                                        }
                                     }
                                 }
                             }
@@ -106,6 +108,64 @@ namespace nBasysNews
                             else if ((indexLeng - index) < indexRange)
                             {
                                 for (int i = (index - indexRange) - 1; i < indexLeng; i++)
+                                {
+                                    string cont = content[i].billItemContent;
+                                    if (cont.Length > 10)
+                                    {
+                                        string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
+                                        using (StreamWriter writer = new StreamWriter(indexFile))
+                                        {
+                                            writer.WriteLine("SLUG");
+                                            writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                            writer.WriteLine("CONTENT");
+                                            writer.WriteLine(content[i].billItemContent);
+                                        }
+                                    }
+                                }
+                                for (int i = indexLeng; i < indexLeng + 5; i++)
+                                {
+                                    string cont = content[i].billItemContent;
+                                    if (cont.Length > 10)
+                                    {
+                                        // 最後再產5則提醒已到底
+                                        string indexFileFinalHint = Path.Combine(destDir, ((i + 1) + ".txt"));
+                                        using (StreamWriter writer = new StreamWriter(indexFileFinalHint))
+                                        {
+                                            writer.WriteLine("已經沒了喔!");
+                                            writer.WriteLine("已經沒了喔!!");
+                                            writer.WriteLine("已經沒了喔!!!");
+
+                                        }
+                                    }
+                                }
+                            }
+                            // 該節次前後有足夠5則
+                            // eg.全文共11則，輸入6，列出範圍為1 2 3 4 5 "6" 7 8 9 10 11(列出11則)
+                            else
+                            {
+                                for (int i = (index - indexRange) - 1; i < index + indexRange; i++)
+                                {
+                                    string cont = content[i].billItemContent;
+                                    if (cont.Length > 10)
+                                    {
+                                        string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
+                                        using (StreamWriter writer = new StreamWriter(indexFile))
+                                        {
+                                            writer.WriteLine("SLUG");
+                                            writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
+                                            writer.WriteLine("CONTENT");
+                                            writer.WriteLine(content[i].billItemContent);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else // 該節次小於11則
+                        {
+                            for (int i = 0; i < indexLeng; i++)
+                            {
+                                string cont = content[i].billItemContent;
+                                if (cont.Length > 10)
                                 {
                                     string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
                                     using (StreamWriter writer = new StreamWriter(indexFile))
@@ -116,7 +176,11 @@ namespace nBasysNews
                                         writer.WriteLine(content[i].billItemContent);
                                     }
                                 }
-                                for (int i = indexLeng; i < indexLeng + 5; i++)
+                            }
+                            for (int i = indexLeng; i < indexLeng + 5; i++)
+                            {
+                                string cont = content[i].billItemContent;
+                                if (cont.Length > 10)
                                 {
                                     // 最後再產5則提醒已到底
                                     string indexFileFinalHint = Path.Combine(destDir, ((i + 1) + ".txt"));
@@ -127,48 +191,6 @@ namespace nBasysNews
                                         writer.WriteLine("已經沒了喔!!!");
 
                                     }
-                                }
-                            }
-                            // 該節次前後有足夠5則
-                            // eg.全文共11則，輸入6，列出範圍為1 2 3 4 5 "6" 7 8 9 10 11(列出11則)
-                            else
-                            {
-                                for (int i = (index - indexRange) - 1; i < index + indexRange; i++)
-                                {
-                                    string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
-                                    using (StreamWriter writer = new StreamWriter(indexFile))
-                                    {
-                                        writer.WriteLine("SLUG");
-                                        writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
-                                        writer.WriteLine("CONTENT");
-                                        writer.WriteLine(content[i].billItemContent);
-                                    }
-                                }
-                            }
-                        }
-                        else // 該節次小於11則
-                        {
-                            for (int i = 0; i < indexLeng; i++)
-                            {
-                                string indexFile = Path.Combine(destDir, ((i + 1) + ".txt"));
-                                using (StreamWriter writer = new StreamWriter(indexFile))
-                                {
-                                    writer.WriteLine("SLUG");
-                                    writer.WriteLine("【{0}】{1}", content[i].billItemActualID, content[i].billItemTitle);
-                                    writer.WriteLine("CONTENT");
-                                    writer.WriteLine(content[i].billItemContent);
-                                }
-                            }
-                            for (int i = indexLeng; i < indexLeng + 5; i++)
-                            {
-                                // 最後再產5則提醒已到底
-                                string indexFileFinalHint = Path.Combine(destDir, ((i + 1) + ".txt"));
-                                using (StreamWriter writer = new StreamWriter(indexFileFinalHint))
-                                {
-                                    writer.WriteLine("已經沒了喔!");
-                                    writer.WriteLine("已經沒了喔!!");
-                                    writer.WriteLine("已經沒了喔!!!");
-
                                 }
                             }
                         }
